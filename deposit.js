@@ -31,7 +31,7 @@ function Deposit(){
     setBalance(ctx.users[0].balance += Number(amount));
     setShow(false);
   }
-  //console.log(ctx.users[0].name);
+
   const persHeader = `${name}, Make A Deposit`
   return (
     <Card
