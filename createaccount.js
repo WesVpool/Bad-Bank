@@ -7,11 +7,12 @@ function CreateAccount(){
   const ctx = React.useContext(UserContext);  
 
   function validate(field, label){
-      if (!field) {
-        setStatus('Error: ' + label);
-        setTimeout(() => setStatus(''),5000);
+      if (!field || field.replaceAll(" ","").length == 0) {
+        setStatus(`Error: ${label} field is empty`);
+        // setTimeout(() => setStatus(''),5000);
         return false;
       }
+      setStatus('');
       return true;
   }
 
@@ -61,14 +62,14 @@ function CreateAccount(){
                 Name<br/>
                 <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} /><br/>
                 Email address<br/>
-                <input type="email" className="form-control" id="email" placeholder="Enter email" required value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+                <input type="input" className="form-control" id="email" placeholder="Enter email" required value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
                 Password<br/>
                 <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
                 <button type="submit" className="btn btn-light" onClick={handleCreate} disabled={emptyInput()}>Create Account</button>
               </>
             ):(
               <>
-              <h5>Success</h5>
+              <h5>Success, Welcome {name}!</h5>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
               </>
             )}
