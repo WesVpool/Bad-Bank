@@ -18,9 +18,10 @@ function CreateAccount(){
   function validatePass(field, label){
     if (field.length < 8 && field.length > 0) {
       setStatus('Error: Password must be at least 8 characters.');
-      setTimeout(() => setStatus(''),5000);
+      //setTimeout(() => setStatus(''),5000);
       return false;
     }
+    setStatus('');
     return true;
   }
 
@@ -33,6 +34,7 @@ function CreateAccount(){
     ctx.users.splice(0,0,{name,email,password,balance:100});
     console.log(ctx.users[0]);
     setShow(false);
+    
   }    
 
   function clearForm(){
@@ -40,6 +42,13 @@ function CreateAccount(){
     setEmail('');
     setPassword('');
     setShow(true);
+  }
+
+  function emptyInput(){
+    if(!name || !email || !password){
+      return true
+    }
+    return false
   }
 
   return (
@@ -55,7 +64,7 @@ function CreateAccount(){
                 <input type="email" className="form-control" id="email" placeholder="Enter email" required value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
                 Password<br/>
                 <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-                <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+                <button type="submit" className="btn btn-light" onClick={handleCreate} disabled={emptyInput()}>Create Account</button>
               </>
             ):(
               <>
