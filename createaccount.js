@@ -30,7 +30,8 @@ function CreateAccount(){
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
     if (!validatePass(password, 'password')) return;
-    const newUsers = ctx.users.push({name,email,password,balance:100});
+    ctx.users.splice(0,0,{name,email,password,balance:100});
+    console.log(ctx.users[0]);
     setShow(false);
   }    
 

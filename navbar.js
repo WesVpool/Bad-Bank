@@ -20,15 +20,20 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav">
               <li className="nav-item">
+                <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Back to the Homepage!" href="#/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Create a new account!" href="#/CreateAccount/">
                   Create Account
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Login to your account!" href="#/login/">
                   Login
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Deposit money to your account!" href="#/deposit/">
                   Deposit
@@ -40,7 +45,7 @@ function NavBar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#/alldata/">
+                <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="All users information" href="#/alldata/">
                   AllData
                 </a>
               </li>
