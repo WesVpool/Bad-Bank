@@ -33,6 +33,7 @@ function Withdraw(){
 
   function handleWithdraw(){
     if (!validate(amount, "amount")) return;
+    ctx.users[0].trans.push(`- Withdraw $${amount}`);
     setBalance(ctx.users[0].balance -= Number(amount));
     setShow(false);
   }

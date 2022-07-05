@@ -15,43 +15,41 @@ function AllData(){
       </div>
     )
   }
+  function users() {
+    return(
+    ctx.users.map((variations, index) => (
+      <Card
+        key={variations.name}
+        txtcolor="black"
+        header={info(index)}
+        title={dollar(index)}
+        body={
+          <div>
+            <h5>{variations.name}'s Transactions:</h5>
 
-  // function cardsUsers () {
-  //   return(
-  //     ctx.users.map((variations, index) => (
-  //       <Card
-  //         txtcolor="black"
-  //         header={ctx.users[index].name}
-  //         title={dollar(index)}s
-  //         body={<h5>All Data in Store {ctx.users[index].name}</h5>
-  //         }
-  // />    
-  //     )));
+            {variations.trans.map((vary, i) => (
+              <p key={i}>{vary}</p>
+            ))}
+                       
+          </div>
+        }/>    
+    ))
+  )}
+  // function transactions (index) {
+  //   const user1 = ctx.users[index];
+  //   user1.trans.map((vary, i) => (
+  //     <div>
+  //       <p>{vary}</p>
+  //     </div>
+  //     )
+  //   )
   // }
 
   return (
     <>
     <h3>Users</h3>
     <br/>
-      {ctx.users.map((variations, index) => (
-        <Card
-          key="users"
-          txtcolor="black"
-          header={info(index)}
-          title={dollar(index)}
-          body={
-            <div>
-              <h5>{ctx.users[index].name}'s Transactions:</h5>
-
-              {ctx.users[index].trans.map((vary, i) => (
-                <div key={i}>
-                  <p>{ctx.users[index].trans[i]}</p>
-                </div>
-              ))}            
-
-            </div>
-          }/>    
-      ))}
+      {users()}
     </>
   )
 }

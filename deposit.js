@@ -28,6 +28,7 @@ function Deposit(){
 
   function handleDeposit(){
     if (!validate(amount, "amount")) return;
+    ctx.users[0].trans.push(`+ Deposited $${amount}`);
     setBalance(ctx.users[0].balance += Number(amount));
     setShow(false);
   }

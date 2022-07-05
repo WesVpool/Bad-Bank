@@ -32,7 +32,7 @@ function CreateAccount(){
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
     if (!validatePass(password, 'password')) return;
-    ctx.users.splice(0,0,{name,email,password,balance:100});
+    ctx.users.splice(0,0,{name,email,password,balance:100,trans:["Initial Account Balance $100"]});
     console.log(ctx.users[0]);
     setShow(false);
     
